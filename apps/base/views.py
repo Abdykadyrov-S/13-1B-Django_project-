@@ -5,8 +5,8 @@ from .models import *
 def index(request):
     title = "Geeks"
     settings = Settings.objects.latest('id')
-    return render(request, 'index.html', locals())
+    return render(request, 'base/index.html', locals())
 
 def contact(request):
     settings = Settings.objects.latest('id')
-    return render(request, 'contact.html', locals())
+    return render(request, 'base/contact.html', locals())
