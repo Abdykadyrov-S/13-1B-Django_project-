@@ -84,14 +84,15 @@
         </div>
       </div>
       <div class="offset-md-1 col-md-7">
-        <form action="">
+        <form action="{% url 'contact' %}" method="post">
+          {% csrf_token %}
           <div class="input-group-area">
-            <input type="text" placeholder="Your name" required />
-            <input type="email" placeholder="Your email" required />
+            <input name="name" type="text" placeholder="Your name" required />
+            <input name="email" type="email" placeholder="Your email" required />
           </div>
           <div class="input-group-area">
-            <input type="tel" placeholder="Phone" required />
-            <input type="text" placeholder="Subject" required />
+            <input name="phone" type="tel" placeholder="Phone" required />
+            <input name="cause" type="text" placeholder="Subject" required />
           </div>
           <textarea name="message" rows="7" placeholder="Message" required></textarea>
           <button type="submit">Send A Message</button>

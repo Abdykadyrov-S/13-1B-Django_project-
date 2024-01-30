@@ -131,19 +131,19 @@
         <div class="col-md-12 order-3">
           <div class="hero-info-count">
             <div class="hero-info-count-item">
-              <h2><span class="counter">40</span>k</h2>
-              <p>Winning award</p>
+              <h2>{% comment %}<span class="counter"></span>{% endcomment %}{{ data.award|safe }}</h2>
+              <p>Наград</p>
             </div>
             <div class="hero-info-count-item">
               <div>
-                <h2><span class="counter">100</span>+</h2>
-                <p>Complete project</p>
+                <h2>{% comment %}<span class="counter">{% endcomment %}</span>{{ data.project|safe }}</h2>
+                <p>Завершенные проекты</p>
               </div>
             </div>
             <div class="hero-info-count-item">
               <div>
-                <h2><span class="counter">800</span>+</h2>
-                <p>Client review</p>
+                <h2>{% comment %}<span class="counter">{% endcomment %}</span>{{ data.review|safe }}</h2>
+                <p>Отзывы от клиентов</p>
               </div>
             </div>
           </div>
@@ -167,7 +167,6 @@
           </div>
           <div class="portfolio-lists">
             <div class="portfolio-item">
-              <img src="{% static 'assets/img/portfolio-item.jpg' %}" alt="portfolio" />
               <div class="portfolio-item-content">
                 <h3><span>01</span> Tech support</h3>
                 <p>
@@ -178,7 +177,6 @@
               <a href="#" class="btn">Take my plan</a>
             </div>
             <div class="portfolio-item">
-              <img src="{% static 'assets/img/portfolio-item.jpg' %}" alt="portfolio" />
               <div class="portfolio-item-content">
                 <h3><span>01</span> Tech support</h3>
                 <p>
@@ -189,7 +187,6 @@
               <a href="#" class="btn">Take my plan</a>
             </div>
             <div class="portfolio-item">
-              <img src="{% static 'assets/img/portfolio-item.jpg' %}" alt="portfolio" />
               <div class="portfolio-item-content">
                 <h3><span>01</span> Tech support</h3>
                 <p>
@@ -200,7 +197,6 @@
               <a href="#" class="btn">Take my plan</a>
             </div>
             <div class="portfolio-item">
-              <img src="{% static 'assets/img/portfolio-item.jpg' %}" alt="portfolio" />
               <div class="portfolio-item-content">
                 <h3><span>01</span> Tech support</h3>
                 <p>

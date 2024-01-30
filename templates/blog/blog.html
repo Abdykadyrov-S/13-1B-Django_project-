@@ -152,18 +152,19 @@
       <div class="row">
         <div class="col-md-8">
           <div class="blog-item-list">
+            {% for blog in blogs %}
             <div class="blog-item">
               <div class="blog-image">
-                <a href='/blog-details'><img src="{% static 'assets/img/blog/1.jpg" alt="blog" /></a>
+                <a href="{% url 'blog_details' blog.id %}"><img src="{{blog.image.url}}" alt="blog" /></a>
                 <div class="blog-date">
-                  <strong>18</strong>
-                  May
+                  <strong>{{blog.created}}</strong>
+                  
                 </div>
               </div>
-              <a href='/blog-details'>
-                <h2>Show your journey inspire the world</h2>
+              <a href="{% url 'blog_details' blog.id %}">
+                <h2>{{ blog.title }}</h2>
               </a>
-              <ul>
+              <!-- <ul>
                 <li><a href="#">By admin</a></li>
                 <li>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -179,94 +180,11 @@
                   </svg>
                 </li>
                 <li><a href="#">Comments(05)</a></li>
-              </ul>
-              <p>
-                Aliquam eros justo, posuere loborti viverra lao ullamcorper
-                posuere viverra .Aliquam eros justo, posuere lobortis non,
-                viverra laoreet augue mattis start fermentum ullamcor viverra
-                laoreet By Admin . Creativity . 28th February 2022 . Leave a
-                comment viverra laoreet augue mattis start fermentum start
-              </p>
+              </ul> -->
+              <p>{{ blog.description }}</p>
             </div>
-            <div class="blog-item">
-              <div class="blog-image">
-                <a href='/blog-details'><img src="{% static 'assets/img/blog/2.jpg" alt="blog" /></a>
-                <div class="blog-date">
-                  <strong>18</strong>
-                  May
-                </div>
-              </div>
-              <a href='/blog-details'>
-                <h2>Show your journey inspire the world</h2>
-              </a>
-              <ul>
-                <li><a href="#">By admin</a></li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-circle-fill" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8" />
-                  </svg>
-                </li>
-                <li><a href="#">Category</a></li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-circle-fill" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8" />
-                  </svg>
-                </li>
-                <li><a href="#">Comments(05)</a></li>
-              </ul>
-              <p>
-                Aliquam eros justo, posuere loborti viverra lao ullamcorper
-                posuere viverra .Aliquam eros justo, posuere lobortis non,
-                viverra laoreet augue mattis start fermentum ullamcor viverra
-                laoreet By Admin . Creativity . 28th February 2022 . Leave a
-                comment viverra laoreet augue mattis start fermentum start
-              </p>
-            </div>
-            <div class="blog-item">
-              <div class="blog-image">
-                <a href='/blog-details'><img src="{% static 'assets/img/blog/3.jpg" alt="blog" /></a>
-                <div class="blog-date">
-                  <strong>18</strong>
-                  May
-                </div>
-              </div>
-              <a href='/blog-details'>
-                <h2>Show your journey inspire the world</h2>
-              </a>
-              <ul>
-                <li><a href="#">By admin</a></li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-circle-fill" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8" />
-                  </svg>
-                </li>
-                <li><a href="#">Category</a></li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-circle-fill" viewBox="0 0 16 16">
-                    <circle cx="8" cy="8" r="8" />
-                  </svg>
-                </li>
-                <li><a href="#">Comments(05)</a></li>
-              </ul>
-              <p>
-                Aliquam eros justo, posuere loborti viverra lao ullamcorper
-                posuere viverra .Aliquam eros justo, posuere lobortis non,
-                viverra laoreet augue mattis start fermentum ullamcor viverra
-                laoreet By Admin . Creativity . 28th February 2022 . Leave a
-                comment viverra laoreet augue mattis start fermentum start
-              </p>
-            </div>
-          </div>
-          <div class="blog-pagination">
-            <ul>
-              <li><a href="#">01</a></li>
-              <li><a href="#">02</a></li>
-              <li><a href="#">03</a></li>
-            </ul>
+            {% endfor %}
+
           </div>
         </div>
         <div class="col-md-4">
@@ -299,7 +217,7 @@
               <h2>Recent post</h2>
               <div class="sidebar-recent-post">
                 <div class="sidebar-recent-post-item">
-                  <a href="#"><img src="{% static 'assets/img/blog/1.jpg" alt="blog" /></a>
+                  <a href="#"><img src="{% static 'assets/img/blog/1.jpg' %}" alt="blog" /></a>
                   <div class="blog-sidebar-post-content">
                     <ul>
                       <li><a href="#">Category</a></li>
@@ -317,7 +235,7 @@
                   </div>
                 </div>
                 <div class="sidebar-recent-post-item">
-                  <a href="#"><img src="{% static 'assets/img/blog/2.jpg" alt="blog" /></a>
+                  <a href="#"><img src="{% static 'assets/img/blog/2.jpg' %}" alt="blog" /></a>
                   <div class="blog-sidebar-post-content">
                     <ul>
                       <li><a href="#">Category</a></li>
@@ -335,7 +253,7 @@
                   </div>
                 </div>
                 <div class="sidebar-recent-post-item">
-                  <a href="#"><img src="{% static 'assets/img/blog/3.jpg" alt="blog" /></a>
+                  <a href="#"><img src="{% static 'assets/img/blog/3.jpg' %}" alt="blog" /></a>
                   <div class="blog-sidebar-post-content">
                     <ul>
                       <li><a href="#">Category</a></li>
