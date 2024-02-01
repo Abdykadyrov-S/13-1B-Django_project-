@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
+from apps.telegram_bot.views import send_message
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -17,5 +19,17 @@ def contact(request):
         cause = request.POST.get('cause')
         message = request.POST.get('message')
         Contact.objects.create(name=name, phone=phone, email=email, cause=cause, message=message,)
+
+        send_message(
+            f"""
+имя пользователя - {name}
+почта (email) - {email}
+номер телефона - {phone}
+причина - {cause}
+сообщение - {message}"""
+        )
+
+        send_mail("Новый отзыв", f"Сообщение - {message}", "abdykadyrovsyimyk0708@gmail.com", [email])
+
         return redirect('index')
     return render(request, 'base/contact.html', locals())
